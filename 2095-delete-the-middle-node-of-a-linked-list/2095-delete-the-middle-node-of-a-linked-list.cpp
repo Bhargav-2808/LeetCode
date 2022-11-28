@@ -24,7 +24,7 @@ public:
             len++;
             temp = temp->next;
         }
-        
+        int mid = len/2;
         int count=0;
         ListNode* prev = NULL;
         ListNode* curr = head;
@@ -35,7 +35,7 @@ public:
         }
      
         
-        while(count<(len/2))
+        while(count<mid)
         {
             prev = curr;
             curr= curr->next;
