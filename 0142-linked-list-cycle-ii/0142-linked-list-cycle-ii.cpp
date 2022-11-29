@@ -7,11 +7,29 @@
  * };
  */
 class Solution {
+    
 public:
+    ListNode* detect(ListNode* head)
+    {
+        ListNode* slow = head;
+        ListNode* fast = head;
+        
+        if(head == NULL || head->next == NULL)
+        {
+            return NULL;
+        }
+        
+        while(slow!=NULL && fast!=NULL)
+        {
+            fast=fast->next;
+            if(fast!=NULL) fast= fast->next;
+            slow=slow->next;
+            if(fast==slow) return slow;
+        }
+        return NULL;
+    }
     ListNode *detectCycle(ListNode *head) {
-        map<ListNode*, bool> visited;
-        //map<int,int> index;
-        //int count  =0;
+       /* map<ListNode*, bool> visited;
         if(head == NULL)
         {
             return NULL;
@@ -26,10 +44,29 @@ public:
             }
             
             visited[temp] = true;
-            //index[count++] = count;
-                        
             temp = temp ->next;
+        }*/
+        if(head == NULL)
+        {
+            return NULL;
         }
-        return NULL;
+        ListNode* intersect = detect(head);
+        if(intersect == NULL)
+        {
+            return NULL;
+        }
+        
+        ListNode* slow = head;
+        
+        while(slow!=intersect)
+        {
+            slow=slow->next;
+            intersect=intersect->next;
+        }
+            
+
+        
+        
+        return slow;
     }
 };
