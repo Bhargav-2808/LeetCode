@@ -4,7 +4,7 @@ public:
         int start = 0;
         int remainingGas = 0;
         int capacity = 0;
-        int rear = 0 ;
+       
         
         for(int i=0;i<gas.size();i++)
         {
