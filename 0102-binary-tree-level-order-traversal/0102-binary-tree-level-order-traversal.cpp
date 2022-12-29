@@ -20,13 +20,13 @@ public:
         while(!q.empty())
         {
             int s = q.size();
-            vector<int> temp;
+            vector<int> temp(s);
             for(int i=0;i<s ;i++)
             {
                 TreeNode* frontNode = q.front();
                 q.pop();
                 
-                temp.push_back(frontNode->val);
+                temp[i]=frontNode->val;
                
                 if(frontNode->left)  q.push(frontNode->left);
                 if(frontNode->right) q.push(frontNode->right);
